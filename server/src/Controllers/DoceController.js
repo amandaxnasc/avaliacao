@@ -3,15 +3,12 @@ import DoceModel from "../Models/DoceModel.js";
 class DoceController{
     constructor() {
         this.doces =[
-            { nome: "Bolos" },
-            { nome: "Tortas" },
-            { nome: "Doces Finos" },
-            { nome: "Doces Tradicionais" },
+            { nome_doce: "" },          
         ];
     }
     create(req, res){
-        const nome = req.body.nome;
-        DoceModel.create(nome).then(
+        const nome_doce = req.body.nome_doce;
+        DoceModel.create(nome_doce).then(
             resposta => {
                 console.debug("Inserindo um Doce");
                 res.status(resposta[0]).json(resposta[1])
@@ -25,7 +22,7 @@ class DoceController{
     }
 
     read(req, res) {
-        DoceModelModel.read().then(
+        DoceModel.read().then(
             resposta =>{
                 console.debug("Mostrando Doce");
                 res.status(resposta[0]).json(resposta[1])
@@ -41,9 +38,9 @@ class DoceController{
 
     update(req, res){
         const id_doces = req.params.id_doces;
-        const nome = req.body.nome;
+        const nome_doce = req.body.nome;
 
-        DoceModelModel.update(id_doces, nome).then(
+        DoceModel.update(id_doces, nome).then(
             resposta => {
                 console.debug("Atualizando Doces")
                 res.status(resposta[0]).json(resposta[1])
@@ -58,7 +55,7 @@ class DoceController{
 
     delete(req, res) {
         const id_doces = req.params.id_doces;
-        const nome = req.body.nome;
+        const nome_doce = req.body.nome;
 
         DoceModel.delete(id_parafuso, nome).then(
             resposta =>{

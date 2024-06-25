@@ -6,7 +6,7 @@ class DoceModel {
         this.conexao = mysql.createConnection(config.db);
     }
     create(nome) {
-        let sql = `insert into doces (nome) values("${nome}");`;
+        let sql = `insert into doces (nome_doce) values("${nome_doce}");`;
 
         return new Promise((resolve, reject) => {
             this.conexao.query(sql, (erro, retorno) => {
@@ -31,7 +31,7 @@ class DoceModel {
 
     }
     update(id_doce, nome){
-        let sql = `UPDATE doces SET nome="${nome}" WHERE id_doce="${id_doce}"`
+        let sql = `UPDATE doces SET nome="${nome_doce}" WHERE id_doce="${id_doce}"`
         
         return new Promise((resolve, reject)=>{
             this.conexao.query(sql, (erro, retorno)=>{
